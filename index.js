@@ -152,9 +152,7 @@ loadConfigure().then(() => {
 
 
 when(function (reason) {
-    if (reason === "disable" || reason === "uninstall") {
-        httpGuard.unregister();
-    }
+    httpGuard.unregister();
 });
 
 
