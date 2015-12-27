@@ -1,0 +1,19 @@
+{
+  "title": "FireEye",
+  "name": "fire-eye",
+  "version": "1.0.0",
+  "description": "Customs HTTP headers",
+  "main": "index.js",
+  "permissions": {
+    "private-browsing": true
+  },
+  "author": "zbinlin",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

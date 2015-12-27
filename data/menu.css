@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+}
+#main {
+    position: absolute;
+    padding: 3px 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menuitem {
+    cursor: default;
+    line-height: 2em;
+    user-select: none;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    box-sizing: border-box;
+    min-width: 10em;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    margin-top: -1px;
+}
+.menuitem::before {
+    content: "";
+    position: absolute;
+    left: 0.6em;
+    right: 0.6em;
+    margin: 0;
+    top: 0;
+    height: 1px;
+    background: hsla(0, 0%, 75%, 1);
+}
+.menuitem:first-of-type {
+    margin-top: 0;
+}
+.menuitem:first-of-type::before {
+    display: none;
+}
+.menuitem:focus {
+    background: hsla(0, 0%, 75%, 1);
+    outline: none;
+}
+.menuitem:focus::before,
+.menuitem:focus + .menuitem::before {
+    display: none;
+}
