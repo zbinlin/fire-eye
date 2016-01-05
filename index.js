@@ -1,18 +1,17 @@
 "use strict";
 
 const { when } = require("sdk/system/unload");
+const { ToggleButton } = require("sdk/ui");
+const { Panel } = require("sdk/panel");
+const notifications = require("sdk/notifications");
+const { get: _ } = require("sdk/l10n");
 
 const HttpGuard = require("./lib/http-guard");
 const Configure = require("./lib/configure");
 
-const { ToggleButton } = require("sdk/ui");
-const { Panel } = require("sdk/panel");
-const notifications = require("sdk/notifications");
 
 let config = new Configure();
 let httpGuard = new HttpGuard();
-
-const _ = require("sdk/l10n").get;
 
 const states = {
     enabled: {
@@ -151,7 +150,7 @@ loadConfigure().then(() => {
 });
 
 
-when(function (reason) {
+when(function () {
     httpGuard.unregister();
 });
 
@@ -165,14 +164,12 @@ function loadConfigure() {
 function notifySuccess() {
     notifications.notify({
         title: "FireEye",
-        iconURL: "./icons/icon-64.png",
         text: _("config_load_success"),
     });
 }
 function notifyFailure() {
     notifications.notify({
         title: "FireEye",
-        iconURL: "./icons/icon-64.png",
         text: _("config_load_failure", config.configFile.path),
     });
 }
